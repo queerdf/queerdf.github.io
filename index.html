@@ -8,5 +8,11 @@
         <h1>
             Hello
         </h1>
+
+        {% for project in site.projects %}
+            <h2>{{project.name}}</h2>
+            <p>{{ project.content | markdownify }}</p>
+        {% endfor %}
+
     </body>
 </html>
