@@ -90,6 +90,7 @@ function draw() {
     const b = (time / 3000) % (2*Math.PI)
     const g = 0
 
+    points = points.sort((a, b) => Math.sin(a[0]) * Math.sin(a[1]) - Math.sin(b[0]) * Math.sin(b[1]))
 
     for (const point of points) {
         const x = 300 * Math.sin(point[0]) * Math.cos(point[1])
@@ -103,8 +104,15 @@ function draw() {
         const tx = cos(b)*cos(g)*x + (sin(a)*sin(b)*cos(g) - cos(a)*sin(g))*y + (cos(a)*sin(b)*cos(g) + sin(a)*sin(g))*z
         const ty = cos(b)*sin(g)*x + (sin(a)*sin(b)*sin(g) + cos(a)*cos(g))*y + (cos(a)*sin(b)*sin(g) - sin(a)*cos(g))*z
 
-        drawCircle(tx+600, ty+350, 10, (point[0]+point[1]+(x/300)+1)/3)
+        drawCircle(tx+550, ty+350, 10, (point[0]+point[1]+(x/300)+1)/3)
     }
+
+    const grd = ctx.createLinearGradient(550, 0, 600, 0)
+    grd.addColorStop(0, "rgba(0,0,0,0)")
+    grd.addColorStop(1, "black")
+
+    ctx.fillStyle = grd
+    ctx.fillRect(550,0,50,700)
 
     window.requestAnimationFrame(draw);
 }
