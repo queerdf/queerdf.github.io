@@ -1,9 +1,34 @@
 ---
-layout: page
 description: "home"
 ---
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-{% for project in site.projects %}
-    <h2>{{project.name}}</h2>
-    <p>{{ project.content | markdownify }}</p>
-{% endfor %}
+<canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;">
+</canvas>
+
+<script type="text/javascript" src="globe.js"></script>
+<p>^ There should be a script</p>
+
+
+<!--
+<table>
+    <tr>
+        <td>
+            <canvas class="myCanvas" width="320" height="240">
+                <p>Add suitable fallback here.</p>
+            </canvas>
+            <img src="https://cdn.arstechnica.net/wp-content/uploads/2016/01/2016-01-13_10-22-26-640x378.png" alt="logo">
+        </td>
+        <td>
+            {% for project in site.projects %}
+                <h2>{{project.name}}</h2>
+                <p>{{ project.content | markdownify }}</p>
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+-->
+</html>

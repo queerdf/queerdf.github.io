@@ -1,3 +1,4 @@
 collections:
   projects:
     output: true
+collections_dir: collections
