@@ -5,22 +5,12 @@ description: "home"
 <html>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<body bgcolor="black">
 
-<canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;">
-</canvas>
-
-<script type="text/javascript" src="globe.js"></script>
-<p>^ There should be a script</p>
-
-
-<!--
 <table>
     <tr>
         <td>
-            <canvas class="myCanvas" width="320" height="240">
-                <p>Add suitable fallback here.</p>
-            </canvas>
-            <img src="https://cdn.arstechnica.net/wp-content/uploads/2016/01/2016-01-13_10-22-26-640x378.png" alt="logo">
+            <canvas id="myCanvas" width="600" height="700" ></canvas>
         </td>
         <td>
             {% for project in site.projects %}
@@ -30,5 +20,7 @@ description: "home"
         </td>
     </tr>
 </table>
--->
+
+<script type="text/javascript" src="globe.js"></script>
+</body>
 </html>
