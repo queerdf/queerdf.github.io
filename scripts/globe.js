@@ -34,7 +34,7 @@ function hsv2rgb(h, s, v) {
 function drawCircle(x, y, radius, a) {
     ctx.beginPath();
     const grd = ctx.createRadialGradient(x, y, 3, x, y, radius);
-    const color = hsv2rgb(a/(Math.PI),1,1)//{r: 255, g: 0, b: 255};
+    const color = hsv2rgb(a/(Math.PI),.8,1)//{r: 255, g: 0, b: 255};
 
     grd.addColorStop(0.5, "rgba("+color.r+","+color.g+","+color.b+", 1)");
     grd.addColorStop(1, "rgba("+color.r+","+color.g+","+color.b+", 0)");
@@ -86,11 +86,17 @@ function draw() {
 
     const time = Date.now();
 
-    const a = (time / 2900) % (2*Math.PI)
-    const b = (time / 3000) % (2*Math.PI)
+    const a = (time / 4600) % (2*Math.PI)
+    const b = (time / 5000) % (2*Math.PI)
     const g = 0
 
-    points = points.sort((a, b) => Math.sin(a[0]) * Math.sin(a[1]) - Math.sin(b[0]) * Math.sin(b[1]))
+    const pointZ = (p) => {
+        const x = 300 * Math.sin(p[0]) * Math.cos(p[1])
+        const y = 300 * Math.sin(p[0]) * Math.sin(p[1])
+        const z = 300 * Math.cos(p[0])
+        return -x*Math.sin(b) + y*Math.sin(a)*Math.cos(b) + z*Math.cos(a)*Math.cos(b)
+    }
+    points = points.sort((a, b) => pointZ(a)-pointZ(b))
 
     for (const point of points) {
         const x = 300 * Math.sin(point[0]) * Math.cos(point[1])
@@ -104,15 +110,15 @@ function draw() {
         const tx = cos(b)*cos(g)*x + (sin(a)*sin(b)*cos(g) - cos(a)*sin(g))*y + (cos(a)*sin(b)*cos(g) + sin(a)*sin(g))*z
         const ty = cos(b)*sin(g)*x + (sin(a)*sin(b)*sin(g) + cos(a)*cos(g))*y + (cos(a)*sin(b)*sin(g) - sin(a)*cos(g))*z
 
-        drawCircle(tx+550, ty+350, 10, (point[0]+point[1]+(x/300)+1)/3)
+        drawCircle(tx+350, ty+350, 10, (point[0]+point[1]+(x/300)+1)/3)
     }
 
-    const grd = ctx.createLinearGradient(550, 0, 600, 0)
+    const grd = ctx.createLinearGradient(0, 300, 0, 350)
     grd.addColorStop(0, "rgba(0,0,0,0)")
     grd.addColorStop(1, "black")
 
     ctx.fillStyle = grd
-    ctx.fillRect(550,0,50,700)
+    ctx.fillRect(0,300,700,50)
 
     window.requestAnimationFrame(draw);
 }
