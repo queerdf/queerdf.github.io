@@ -31,7 +31,8 @@
 
 /* Style the active/current link*/
 .header a.active {
-    background-image: linear-gradient(to right, lightpink, mediumpurple);
+    background-color: cornflowerblue;
+            /* conic-gradient(lightpink, lightsalmon, lightyellow, lightgreen, lightyellow, lightsalmon, lightpink); */
     color: black;
 }
 
