@@ -1,3 +1,7 @@
+@font-face { font-family: "Open Sans"; src: url('../assets/fonts/OpenSans.ttf'); }
+@font-face { font-family: "Open Sans"; font-style: italic; src: url('../assets/fonts/OpenSans-Italic.ttf'); }
+
+
 body {
     color: #ffffff;
     font-family: "Open Sans", sans-serif;

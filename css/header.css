@@ -31,9 +31,10 @@
 
 /* Style the active/current link*/
 .header a.active {
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
             /* conic-gradient(lightpink, lightsalmon, lightyellow, lightgreen, lightyellow, lightsalmon, lightpink); */
-    color: black;
+    text-decoration: underline white 3px;
+    color: white;
 }
 
 /* Float the link section to the right */
