@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<body style="background-color: black">
+<link rel="stylesheet" href="/css/text.css">
+<link rel="stylesheet" href="/css/header.css">
+
+<div class="header">
+    <a href="/index.html" class="logo">
+        <img src="../assets/imgs/qdf.png" height="50" style="vertical-align: top;" alt="A circular outline with a line stricken through it diagonally">
+    </a>
+    <div class="header-right">
+        {% if include.page_type == "home" %}
+            <a class="active" href="/index.html">Home</a>
+        {% else %}
+            <a href="/index.html">Home</a>
+        {% endif %}
+
+        {% if include.page_type == "projects" %}
+            <a class="active" href="/projects.html">Projects</a>
+        {% else %}
+            <a href="/projects.html">Projects</a>
+        {% endif %}
+
+
+        {% if include.page_type == "about" %}
+            <a class="active" href="/about.html">About</a>
+        {% else %}
+            <a href="/about.html">About</a>
+        {% endif %}
+
+        {% if include.page_type == "get-involved" %}
+        <a class="active" href="/get-involved.html">Get Involved</a>
+        {% else %}
+        <a href="/get-involved.html">Get Involved</a>
+        {% endif %}
+    </div>
+</div>
+
+<body>
+</html>

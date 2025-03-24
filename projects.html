@@ -1,0 +1,33 @@
+---
+description: "home"
+---
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="qdf.ico">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<body style="background-color: black">
+<link rel="stylesheet" href="/css/text.css">
+<link rel="stylesheet" href="/css/rowcolumn.css">
+<link rel="stylesheet" href="/css/header.css">
+
+{% include header.html page_type="projects" %}
+
+<h1 class="centered">Our Projects</h1>
+
+
+<table class="center">
+
+{% for project in site.projects %}
+    <tr>
+        <td>
+            <h2>{{project.name}}</h2>
+
+            <p>{{project.content | markdownify}}</p>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
